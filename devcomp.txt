@@ -1,0 +1,94 @@
+<script>
+   
+const devices = {
+    'Phone': {
+        'Name': 'Phone',
+        'Battery': ['recover materials like lithium,cobalt & nickal'],
+        'Circuit Boards': ['Silver & Copper & Rare Gold metals are recovered'],
+        'Display Screens': ['(LCD,OLED etc...) recover metals such as indium,rare earth elements & glass'],
+        'Microprocessors & memory chips': ['Rare metals like tantalum are recycled'],
+        'Connectors and Cables': ['metals in connectors and cables can be recycled'],
+	'Speakers and Vibrating motor': ['components may contain magnets that can be recycled']
+    },
+    'Computer': {
+        'Name': 'Computer',
+        'Battery': ['recover materials like lithium,cobalt & nickal'],
+        'Circuit Boards': ['Silver & Copper & Rare Gold metals are recovered'],
+        'Display Screens': ['(LCD,OLED etc...) recover metals such as indium,rare earth elements & glass'],
+        'Microprocessors & memory chips': ['Rare metals like tantalum are recycled'],
+        'Connectors and Cables': ['metals in connectors and cables can be recycled'],
+	'Speakers and Vibrating motor': ['components may contain magnets that can be recycled']
+    },
+    'TV': {
+        'Name': 'TV',
+        'Components': ['Screen', 'Speakers', 'Remote'],
+        'Operating System': ['Various Smart TV OS'],
+        'Connectivity': ['Wi-Fi', 'Bluetooth', 'HDMI'],
+        'Description': ['A device primarily used for entertainment and viewing content.']
+    }
+};
+
+window.onload = function() {
+    let params = new URLSearchParams(location.search);
+    let modelName = params.get('modelName');
+    let modelDetailsDiv = document.getElementById('modelDetails');
+
+    let device = devices[modelName];
+    if (device) {
+        let detailsHTML = `<h2>${device.Name} recycling components</h2>`;
+        
+        for(let key in device) {
+            if (key !== "Name") {
+                detailsHTML += `<p><strong>${key}:</strong> ${device[key].join(', ')}</p>`;
+            }
+        }
+
+        modelDetailsDiv.innerHTML = detailsHTML;
+    } else {
+        modelDetailsDiv.innerHTML = '<p>Unknown model selected.</p>';
+    }
+};
+
+    function displayImage() {
+        const imageInput = document.getElementById('deviceImage');
+        const uploadedImage = document.getElementById('uploadedImage');
+        
+        if (imageInput.files && imageInput.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function (e) {
+                uploadedImage.src = e.target.result;
+                uploadedImage.style.display = 'block';
+            }
+            
+            reader.readAsDataURL(imageInput.files[0]);
+        }
+    }
+ let points = 0;
+    let imageUploadCount = 0;
+
+    function processImage() {
+        // Show processing message
+        document.getElementById('resultDisplay').textContent = "Processing Image...";
+
+        // Simulate image processing delay
+        setTimeout(() => {
+            imageUploadCount++;
+            const isRecyclable = imageUploadCount % 2 !== 0;
+
+            if (isRecyclable) {
+                points += 100;
+                document.getElementById('pointsDisplay').textContent = "Points: " + points;
+                document.getElementById('resultDisplay').textContent = "Result: Recyclable";
+               makingcall();
+
+            } else {
+                document.getElementById('resultDisplay').textContent = "Result: Not Recyclable";
+            }
+        }, 4000); // 2-second delay
+    }
+    function makingcall()
+    {
+        alert("The model given can be recyclable\ncontact us through phone number \n emailid:xxxxxx")
+    }
+</script>
