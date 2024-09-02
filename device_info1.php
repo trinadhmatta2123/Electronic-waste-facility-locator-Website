@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Check if the user is logged in, if not then redirect to login page
 if (!isset($_SESSION["username"])) {
     header("location: login.php");
     exit;
@@ -12,12 +11,9 @@ $selectedCity = isset($_GET['city']) ? htmlspecialchars($_GET['city']) : '';
 $selectedDevice = isset($_GET['device']) ? htmlspecialchars($_GET['device']) : '';
 $pointsIncrease = 10; // Points to be added when the user uploads an image
 
-// Include config file here to connect to the database
-require_once "config.php";
+\require_once "config.php";
 
-// Handle image upload
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if the form was submitted
     if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
         $targetDir = "uploads/"; // Directory to store uploaded images
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
@@ -72,7 +68,6 @@ $mysqli->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Device Details</title>
     <style>
-        /* Resetting some browser defaults */
         body, h2, p {
             margin: 0;
             padding: 0;
