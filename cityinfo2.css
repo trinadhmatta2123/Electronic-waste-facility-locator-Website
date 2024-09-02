@@ -1,0 +1,379 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    
+    color: #444;
+    
+    line-height: 1.6;
+    overflow-x: hidden;
+    height: 200vh; /* Increased length */
+}
+
+/* Header Styles */
+/* Reset some default browser styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: url('headerimg.png') no-repeat center/cover;
+    height: 250px;  /* Adjusted height for the additional heading */
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    color: white;
+font-family: "Times New Roman", Times, serif;
+    font-size: 5.1rem;
+    position: absolute;
+    bottom: 60%;  /* Adjusted for positioning */
+    left: -100%;
+    animation: slideInFromLeft 2s forwards;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 30%;  /* Adjusted for positioning */
+    right: -80%;
+    animation: slideInFromRight 3s 1s forwards;  /* The "1s" delay allows the h1 animation to start first */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideInFromLeft {
+    100% {
+        left: 10%;
+    }
+}
+
+@keyframes slideInFromRight {
+    100% {
+        right: 10%;
+    }
+}
+
+/* Section Styles */
+section {
+    margin: 4rem auto;
+    max-width: 1200px;
+    padding: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+section h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 70px;
+    background-color: #007BFF;
+}
+
+/* Input and Button Styles */
+label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+input[type="text"],
+input[type="file"],
+button {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: transform 0.3s;
+}
+
+input[type="text"]:hover,
+input[type="file"]:hover {
+    transform: translateY(-3px);
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    background: linear-gradient(45deg, #007BFF, #33C3F0);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal Styles */
+#myModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto; /* Added for scrolling */
+}
+
+#myModal div {
+    background-color: rgba(255, 255, 255, 0.95);
+    background-image: url('bglearnmore.png');
+    background-size: cover;
+    width: 65%;
+    max-width: 750px;
+    margin: 8% auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+#myModal p {
+    color: #333;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+#myModal span {
+    font-size: 2.5rem;
+    color: #555;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myModal span:hover {
+    color: #007BFF;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 1.1rem;
+    letter-spacing: 1.1px;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 900px) {
+    section, #myModal div {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+    }
+}
+.image-slider {
+    width: 150%;
+    margin: 5rem auto;
+    overflow: hidden;
+}
+
+.image-slider img {
+    max-width: 150%;  // This ensures images scale down if they are too big
+    display: block;  // Removes any spacing
+    margin: 0 auto;  // Centers the image horizontally
+}
+
+//styling for the drop down bar
+
+
+        form {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+ body {
+            font-family: 'Arial', sans-serif;
+            position: relative;
+           
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            
+        }
+
+        .popup {
+            position: fixed;
+            top: 60%;
+            width: 500px;
+            padding: 30px;
+            background-color: #c7fbf1;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50%);
+            transition: all 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .left {
+            left: -450px;
+        }
+
+        .right {
+            right: -450px;
+        }
+
+        .show-popup.left {
+            left: 5%;
+        }
+
+        .show-popup.right {
+            right: 5%;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 28px;
+            background: #e74c3c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+
+        .close:hover {
+            background: #c0392b;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+#pointsContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: absolute;
+            top: 5px;
+            right: 20px;
+            background: linear-gradient(145deg, #673ab7, #8e24aa);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        #pointsContainer div {
+            margin: 5px 0;
+        }
+
+        #pointsDisplay {
+            font-size: 1.7em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #fff;
+            padding: 5px 15px;
+            border-radius: 15px;
+        }
+
+       
+.tri
+{
+font-size: 34px;
+}
+footer {
+height:400px
+    background-color: black;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .social-icons {
+    margin: 0 auto;
+    width: fit-content;
+  }
+
+  .social-icons img {
+    width: 40px;
+    margin: 0 5px;
+  }
+
+  .contact-info {
+color:white;
+    margin-top: 10px;

@@ -1,0 +1,15 @@
+body { font: 14px sans-serif; text-align: center; }
+.device-dropdown { margin: 10px; }
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
